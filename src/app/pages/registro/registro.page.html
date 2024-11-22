@@ -1,0 +1,23 @@
+<ion-content class="ion-padding">
+  <ion-card class="custom-card">
+    <form [formGroup]="usuario" (ngSubmit)="registrarUsuario()" style="margin: 20px;">
+      <ion-input formControlName="rut" type="text" label="RUT" labelPlacement="stacked" fill="outline" Placeholder="12345678-9" helperText="Sin puntos y con guión."></ion-input>
+      <br>
+      <ion-input formControlName="nombre" type="text" label="Nombre" labelPlacement="stacked" fill="outline" placeholder="Nombre" helperText="Solo letras"></ion-input>
+      <br>
+      <ion-input formControlName="apellido" type="text" label="Apellido" labelPlacement="stacked" fill="outline" placeholder="Apellido" helperText="Solo letras"></ion-input>
+      <br>
+      <ion-input formControlName="correo" type="email" label="Correo" labelPlacement="stacked" fill="outline" placeholder="correo@correo.com" helperText="Debe ser un correo válido!"></ion-input>
+      <br>
+      <ion-input formControlName="telefono" type="text" label="Teléfono" labelPlacement="stacked" fill="outline" placeholder="912345678" helperText="Debe tener 9 dígitos/solo números"></ion-input>
+      <br>
+      <ion-input formControlName="contrasena" type="password" label="Contraseña" labelPlacement="stacked" fill="outline" placeholder="Ejemplo123#" helperText="Alfanumérica y un caracter">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+
+      <ion-button [disabled]="!usuario.valid" color="warning" expand="full" fill="outline" shape="round" type="submit">Registrarse</ion-button>
+    </form>
+  </ion-card>
+
+  <p style="text-align: center; padding: 5px;">¿Ya tienes cuenta? <a routerLink="/login">¡Inicia sesión!</a></p>
+</ion-content>
