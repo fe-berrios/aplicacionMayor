@@ -11,6 +11,10 @@ const routes: Routes = [
         path: 'perfil',
         loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule)
       },
+      {
+        path: 'administrar',
+        loadChildren: () => import('../administrar/administrar.module').then( m => m.AdministrarPageModule)
+      },
     ]
   }
 ];
