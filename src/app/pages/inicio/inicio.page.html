@@ -1,0 +1,23 @@
+<ion-content>
+
+  <div class="imagen">
+    <img src="../../../assets/logoMA.png" alt="Logo de Mayor Activo" class="logo">
+  </div>
+  
+  <div class="card-container">
+    <ion-card *ngFor="let taller of talleres">
+      <ion-card-header>
+        <ion-card-title>{{ taller.nombre }}</ion-card-title>
+        <ion-card-subtitle>Impartido por {{ taller.instructor }} en sala {{ taller.sala }}</ion-card-subtitle>
+        <ion-card-subtitle>{{ taller.dias }} de {{ taller.horario }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{ taller.descripcion }}
+      </ion-card-content>
+      <!-- Botón para unirse al taller -->
+      <ion-button fill="clear" (click)="unirTaller(taller.id)">
+        Unirse al taller
+      </ion-button>
+    </ion-card>
+  </div>
+</ion-content>

@@ -8,12 +8,17 @@ const routes: Routes = [
     component: HomePage,
     children: [
       {
-        path: 'perfil',
-        loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule)
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full' // Redirige exactamente cuando el path es vacío
       },
       {
-        path: 'administrar',
-        loadChildren: () => import('../administrar/administrar.module').then( m => m.AdministrarPageModule)
+        path: 'inicio',
+        loadChildren: () => import('../inicio/inicio.module').then(m => m.InicioPageModule)
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       },
     ]
   }
