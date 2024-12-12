@@ -1,5 +1,5 @@
 :root {
-    --ion-item-border-color: var(--ion-background-color-step-200);
+  --ion-background-color: #ffffff; /* Fondo blanco fijo */
   }
   
   /* This sets a different background and item background for the default theme on ios */
@@ -11,7 +11,7 @@
   
   /* This sets a different background and item background for the default theme on md */
   :root.md {
-    --ion-background-color: var(--ion-background-color-step-100, #ffffff);
+    --ion-background-color: #ffffff; /* Fondo blanco fijo */
     --ion-toolbar-background: var(--ion-background-color);
     --ion-item-background: #ffffff;
   }
