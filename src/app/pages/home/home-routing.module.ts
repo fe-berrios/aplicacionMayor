@@ -20,6 +20,10 @@ const routes: Routes = [
         path: 'perfil',
         loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       },
+      {
+        path: 'mis-talleres',
+        loadChildren: () => import('../mis-talleres/mis-talleres.module').then( m => m.MisTalleresPageModule)
+      },
     ]
   }
 ];

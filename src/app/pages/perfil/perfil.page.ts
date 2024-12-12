@@ -8,44 +8,19 @@ import { Router } from '@angular/router';
 })
 export class PerfilPage implements OnInit {
   usuario: any = {};
-  talleres: any[] = [];
-  talleresUsuario: any[] = [];
   mostrarPerfil: boolean = true;
   editandoPerfil: boolean = false; // Controla si se está editando el perfil
 
   constructor(private router: Router) {}
 
   ngOnInit() {
+    // Carga el usuario desde el localStorage
     this.usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
-    const talleresGuardados = localStorage.getItem('talleres');
-    if (talleresGuardados) {
-      this.talleres = JSON.parse(talleresGuardados);
-    }
   }
 
   cerrarSesion() {
     localStorage.removeItem('usuario');
     this.router.navigate(['/login']);
-  }
-
-  verMisTalleres() {
-    this.talleresUsuario = this.talleres.filter(taller => taller.alumnos.includes(this.usuario.rut));
-    this.mostrarPerfil = false;
-  }
-
-  volver() {
-    this.mostrarPerfil = true;
-    this.editandoPerfil = false;
-  }
-
-  abandonarTaller(tallerId: number) {
-    const taller = this.talleres.find(t => t.id === tallerId);
-    if (taller) {
-      taller.alumnos = taller.alumnos.filter((rut: any) => rut !== this.usuario.rut);
-      localStorage.setItem('talleres', JSON.stringify(this.talleres));
-      this.verMisTalleres();
-      alert(`Has abandonado el taller: ${taller.nombre}`);
-    }
   }
 
   eliminarPerfil() {
@@ -56,16 +31,40 @@ export class PerfilPage implements OnInit {
   }
 
   mostrarEditarPerfil() {
-    this.editandoPerfil = true;
+    this.editandoPerfil = true; // Muestra la vista de edición
+
+    // Espera un momento para asegurarse de que la tarjeta esté visible
+    setTimeout(() => {
+      const editarPerfilCard = document.getElementById('editarPerfilCard');
+      if (editarPerfilCard) {
+        editarPerfilCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100); // Retraso breve para garantizar la renderización
   }
 
   guardarPerfil() {
+    // Validaciones básicas
+    if (!this.usuario.nombre || !this.usuario.apellido || !this.usuario.correo || !this.usuario.telefono) {
+      alert('Todos los campos son obligatorios.');
+      return;
+    }
+
+    // Actualiza el perfil en el localStorage
     localStorage.setItem('usuario', JSON.stringify(this.usuario));
     alert('Perfil actualizado correctamente.');
+
+    // Cambia de vista
+    this.mostrarPerfil = true;
     this.editandoPerfil = false;
   }
 
   cancelarEditarPerfil() {
+    // Cancela la edición y recarga los datos originales
+    this.usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
     this.editandoPerfil = false;
+  }
+
+  verMisTalleres() {
+    this.router.navigate(['/home/mis-talleres']); // Navega a la página de Mis Talleres
   }
 }

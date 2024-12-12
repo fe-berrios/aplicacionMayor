@@ -11,9 +11,9 @@
   
   /* This sets a different background and item background for the default theme on md */
   :root.md {
-    --ion-background-color: var(--ion-background-color-step-100, #a8a8a8);
+    --ion-background-color: var(--ion-background-color-step-100, #ffffff);
     --ion-toolbar-background: var(--ion-background-color);
-    --ion-item-background: #dfdfdf;
+    --ion-item-background: #ffffff;
   }
   
   /* This sets a different item background when dark mode is enabled on ios and md */

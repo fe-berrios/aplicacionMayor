@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botón de volver -->
+      <ion-button (click)="volver()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mis Talleres</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="card-wrapper">
+    <div *ngIf="misTalleres.length > 0; else noTalleres">
+      <ion-card *ngFor="let taller of misTalleres" class="custom-card">
+        <ion-card-header>
+          <ion-card-title>{{ taller.nombre }}</ion-card-title>
+          <ion-card-subtitle>Impartido por {{ taller.instructor }} en sala {{ taller.sala }}</ion-card-subtitle>
+          <ion-card-subtitle>{{ taller.dias }} de {{ taller.horario }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{ taller.descripcion }}
+        </ion-card-content>
+        <ion-button expand="block" class="custom-button" (click)="abandonarTaller(taller.id)">
+          Abandonar Taller
+        </ion-button>
+      </ion-card>
+    </div>
+
+    <ng-template #noTalleres>
+      <p class="no-talleres">No estás inscrito en ningún taller.</p>
+    </ng-template>
+  </div>
+</ion-content>

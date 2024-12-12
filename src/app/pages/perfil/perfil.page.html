@@ -1,7 +1,7 @@
 <ion-content>
   <!-- Card de Perfil -->
   <div *ngIf="mostrarPerfil" class="card-wrapper">
-    <ion-card>
+    <ion-card class="custom-card">
       <ion-card-header>
         <ion-card-title>{{ usuario.nombre }} {{ usuario.apellido }}</ion-card-title>
         <ion-card-subtitle>{{ usuario.rut }}</ion-card-subtitle>
@@ -10,69 +10,44 @@
         <p><strong>Correo:</strong> {{ usuario.correo }}</p>
         <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
 
-        <!-- Botón de cerrar sesión -->
-        <ion-button expand="block" color="danger" (click)="cerrarSesion()">Cerrar sesión</ion-button>
         <!-- Botón de "Mis Talleres" -->
-        <ion-button expand="block" color="primary" (click)="verMisTalleres()">Mis Talleres</ion-button>
-        <!-- Botón para eliminar perfil -->
-        <ion-button expand="block" color="danger" (click)="eliminarPerfil()">Eliminar Perfil</ion-button>
+        <ion-button expand="block" class="custom-button" (click)="verMisTalleres()">Mis Talleres</ion-button>
         <!-- Botón para modificar perfil -->
-        <ion-button expand="block" color="secondary" (click)="mostrarEditarPerfil()">Modificar Perfil</ion-button>
+        <ion-button expand="block" class="custom-button secondary" (click)="mostrarEditarPerfil()">Modificar Perfil</ion-button>
+        <!-- Botón para eliminar perfil -->
+        <ion-button expand="block" class="custom-button danger" (click)="eliminarPerfil()">Eliminar Perfil</ion-button>
+        <!-- Botón de cerrar sesión -->
+        <ion-button expand="block" class="custom-button danger" (click)="cerrarSesion()">Cerrar sesión</ion-button>
       </ion-card-content>
     </ion-card>
   </div>
 
   <!-- Card de Editar Perfil -->
-  <div *ngIf="editandoPerfil" class="card-wrapper">
-    <ion-card>
+  <div *ngIf="editandoPerfil" class="card-wrapper" id="editarPerfilCard">
+    <ion-card class="custom-card">
       <ion-card-header>
         <ion-card-title>Modificar Perfil</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-item>
           <ion-label position="stacked">Nombre</ion-label>
-          <ion-input [(ngModel)]="usuario.nombre"></ion-input>
+          <ion-input [(ngModel)]="usuario.nombre" placeholder="Escribe tu nombre"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Apellido</ion-label>
-          <ion-input [(ngModel)]="usuario.apellido"></ion-input>
+          <ion-input [(ngModel)]="usuario.apellido" placeholder="Escribe tu apellido"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Correo</ion-label>
-          <ion-input [(ngModel)]="usuario.correo"></ion-input>
+          <ion-input [(ngModel)]="usuario.correo" type="email" placeholder="correo@correo.com"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Teléfono</ion-label>
-          <ion-input [(ngModel)]="usuario.telefono"></ion-input>
+          <ion-input [(ngModel)]="usuario.telefono" type="tel" placeholder="912345678"></ion-input>
         </ion-item>
 
-        <ion-button expand="block" color="success" (click)="guardarPerfil()">Guardar Cambios</ion-button>
-        <ion-button expand="block" color="tertiary" (click)="cancelarEditarPerfil()">Cancelar</ion-button>
-      </ion-card-content>
-    </ion-card>
-  </div>
-
-  <!-- Card de Mis Talleres -->
-  <div *ngIf="!mostrarPerfil && !editandoPerfil" class="card-wrapper">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Mis Talleres</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <div *ngIf="talleresUsuario.length === 0" class="no-talleres">
-          <p>Aún no estás inscrito a ningún taller.</p>
-        </div>
-        <ion-list *ngIf="talleresUsuario.length > 0">
-          <ion-item *ngFor="let taller of talleresUsuario">
-            <ion-label>
-              <h2>{{ taller.nombre }}</h2>
-              <h3>Instructor {{ taller.instructor }} en Sala {{ taller.sala }}</h3>
-              <p>{{ taller.descripcion }}</p>
-            </ion-label>
-            <ion-button color="danger" fill="outline" (click)="abandonarTaller(taller.id)">Abandonar</ion-button>
-          </ion-item>
-        </ion-list>
-        <ion-button expand="block" color="tertiary" (click)="volver()">Volver</ion-button>
+        <ion-button expand="block" class="custom-button success" (click)="guardarPerfil()">Guardar Cambios</ion-button>
+        <ion-button expand="block" class="custom-button tertiary" (click)="cancelarEditarPerfil()">Cancelar</ion-button>
       </ion-card-content>
     </ion-card>
   </div>

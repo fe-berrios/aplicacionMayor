@@ -7,12 +7,18 @@
 }
 
 ion-card {
+  --background: #3580f1; /* Fondo del card */
+  --ion-card-background: #275fb4; /* Compatibilidad */
+  color: #ffffff; /* Color del texto */
   width: auto; /* Ajusta el ancho al contenido */
   max-width: 400px; /* Limita el ancho máximo para mantener un diseño limpio */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra elegante */
-  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Agrega una sombra elegante */
+  border-radius: 15px; /* Bordes redondeados */
   padding: 16px; /* Espaciado interno de la card */
   text-align: left; /* Alineación del texto hacia la izquierda */
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido esté en columna */
+  justify-content: space-between; /* Coloca el botón al final */
 }
 
 ion-card-header {
@@ -27,19 +33,26 @@ ion-card-title {
 
 ion-card-subtitle {
   font-size: 1rem;
-  color: gray;
+  color: #d4d4d4; /* Color gris claro para subtítulos */
   margin-bottom: 4px;
 }
 
 ion-card-content {
   font-size: 0.9rem;
-  color: #555;
+  color: #ffffff; /* Color blanco del texto en la card */
   margin-bottom: 8px; /* Espaciado con el botón */
 }
 
 ion-button {
-  align-self: flex-end; /* Alinea el botón a la derecha */
-  margin-top: 8px; /* Espaciado superior del botón */
+  width: 100%; /* Hace que el botón ocupe todo el ancho de la tarjeta */
+  margin-top: 16px; /* Espaciado superior del botón */
+  --background: #ffcc99; /* Fondo del botón */
+  --color: #ff5722; /* Color del texto del botón */
+  --border-color: #ffa245; /* Color del borde del botón */
+  text-align: center; /* Asegura que el texto esté centrado */
+  border-radius: 8px; /* Bordes redondeados del botón */
+  height: 50px; /* Altura uniforme para todos los botones */
+  align-self: center; /* Alinea el botón dentro del card */
 }
 
 .imagen {

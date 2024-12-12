@@ -17,11 +17,28 @@
   font-size: 16px;
   line-height: 22px;
 
-  color: #8c8c8c;
+  color: #ffffff;
 
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+ion-tab-bar {
+  background: #ffcc99;
+  --border-color: #fa8f24; /* Cambia el color del borde */
+  --border-width: 2px; /* Ajusta el grosor del borde */
+
+  /* Alternativamente, puedes personalizar el borde inferior */
+  border-top: 2px solid #fa8f24; /* Personaliza el borde superior */
+  border-bottom: 0; /* Elimina el borde inferior si está presente */
+}
+
+/* Opcional: Ajustar estilo para tab-buttons */
+ion-tab-button {
+  --background: #ffcc99; /* Fondo de los botones */
+  --color-selected: #fa8f24; /* Color del ícono/texto seleccionado */
+  --color: #ffffff; /* Color del ícono/texto no seleccionado */
 }

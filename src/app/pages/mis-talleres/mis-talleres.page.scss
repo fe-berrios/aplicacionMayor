@@ -1,0 +1,71 @@
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  .custom-card {
+    --background: #3580f1; /* Fondo del card */
+    --ion-card-background: #275fb4; /* Compatibilidad */
+    color: #ffffff; /* Color del texto */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 600px; /* Limita el ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 16px;
+    text-align: left;
+    margin-bottom: 16px; /* Espaciado entre las tarjetas */
+  }
+  
+  .custom-card ion-card-header {
+    margin-bottom: 8px;
+  }
+  
+  .custom-card ion-card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .custom-card ion-card-subtitle {
+    font-size: 1rem;
+    color: #d4d4d4; /* Color gris claro */
+    margin-bottom: 4px;
+  }
+  
+  .custom-card ion-card-content {
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+  
+  .custom-button {
+    width: 100%; /* Botones ocupan todo el ancho */
+    height: 50px; /* Altura uniforme */
+    margin-top: 16px;
+    border-radius: 8px; /* Bordes redondeados */
+    --background: #ffcc99; /* Fondo predeterminado */
+    --color: #ff5722; /* Texto predeterminado */
+    --border-color: #ffa245; /* Borde predeterminado */
+  }
+  
+  
+  .no-talleres {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin: 16px 0;
+  }
+  
+  ion-toolbar {
+    --background: #3580f1; /* Cambia el fondo del toolbar */
+    --color: #ffffff; /* Cambia el color del texto */
+    --border-color: #275fb4; /* Cambia el color del borde si hay uno */
+    border-bottom: 2px solid #275fb4; /* Añade un borde inferior personalizado */
+  }
+  
+  ion-title {
+    font-size: 1.4rem; /* Ajusta el tamaño de la fuente */
+    font-weight: bold; /* Negrita para el título */
+  }

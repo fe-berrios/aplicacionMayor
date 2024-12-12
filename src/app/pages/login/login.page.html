@@ -15,9 +15,14 @@
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
         <br>
-        <ion-button (click)="loginUsuario(correo, contrasena)" color="warning" expand="full" fill="outline" shape="round" >Iniciar Sesión</ion-button>
+        <ion-button (click)="loginUsuario(correo, contrasena)" expand="full" fill="outline" shape="round" >Iniciar Sesión</ion-button>
       </ion-card-content>
     </ion-card-header>
   </ion-card>
-  <p style="text-align: center; padding: 5px;">¿Aún no tiene cuenta? <a routerLink="/registro">¡Regístrate!</a></p>
+  <p style="text-align: center; padding: 5px;">
+    <span style="background-color: #ffcc99; padding: 10px 15px; border-radius: 25px; display: inline-block;">
+      ¿Aún no tiene cuenta? 
+      <a routerLink="/registro" style="color: #ff6b26; font-weight: bold; text-decoration: none;">¡Regístrese!</a>
+    </span>
+  </p>
 </ion-content>
